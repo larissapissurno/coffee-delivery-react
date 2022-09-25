@@ -1,9 +1,9 @@
 import { Minus, Plus, ShoppingCartSimple } from 'phosphor-react'
-import { StyledContainer, StyledCounter } from './styles'
+import { ContentWrapper, StyledCounter } from './styles'
 
 export function CoffeeCard() {
   return (
-    <StyledContainer>
+    <ContentWrapper>
       <img src="" alt="" />
       <span>Tradicional</span>
       <h5>Expresso Tradicional</h5>
@@ -25,6 +25,6 @@ export function CoffeeCard() {
           <ShoppingCartSimple />
         </button>
       </div>
-    </StyledContainer>
+    </ContentWrapper>
   )
 }

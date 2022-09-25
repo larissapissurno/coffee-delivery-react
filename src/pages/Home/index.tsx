@@ -1,5 +1,7 @@
 import { ContentContainer, StyledTitleL } from '../../styles/global'
+import { CoffeeCard } from './components/CoffeeCard'
 import { IntroSection } from './components/IntroSection'
+import { CoffeeCardList } from './styles'
 
 export function Home() {
   return (
@@ -7,10 +9,9 @@ export function Home() {
       <IntroSection />
       <ContentContainer>
         <StyledTitleL>Nossos cafés</StyledTitleL>
-        {/* <CoffeeCard />
-        <CoffeeCard />
-        <CoffeeCard />
-        <CoffeeCard /> */}
+        <CoffeeCardList>
+          <CoffeeCard />
+        </CoffeeCardList>
       </ContentContainer>
     </>
   )
