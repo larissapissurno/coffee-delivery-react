@@ -1,10 +1,11 @@
 import { Minus, Plus, ShoppingCartSimple } from 'phosphor-react'
 import { ContentWrapper, StyledCounter } from './styles'
+import creamyEspressoImage from '@assets/coffees/mochaccino.png'
 
 export function CoffeeCard() {
   return (
     <ContentWrapper>
-      <img src="" alt="" />
+      <img src={creamyEspressoImage} alt="" />
       <span>Tradicional</span>
       <h5>Expresso Tradicional</h5>
       <small>O tradicional café feito com água quente e grãos moídos</small>
