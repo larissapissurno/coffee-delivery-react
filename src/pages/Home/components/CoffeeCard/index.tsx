@@ -7,7 +7,7 @@ export function CoffeeCard() {
     <ContentWrapper>
       <img src={creamyEspressoImage} alt="" />
       <span>Tradicional</span>
-      <h5>Expresso Tradicional</h5>
+      <h3>Expresso Tradicional</h3>
       <small>O tradicional café feito com água quente e grãos moídos</small>
 
       <div>

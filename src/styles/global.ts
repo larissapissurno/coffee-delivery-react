@@ -15,12 +15,29 @@ export const GlobalStyle = createGlobalStyle`
     background: ${(props) => props.theme.background};
   }
 
-  h1 {
+  // titles
+  h1, h2, h3, h4 {
     font-family: 'Baloo 2';
     font-style: normal;
+    line-height: 130%;
+    font-weight: 700;
+  }
+
+  h1 {
     font-weight: 800;
     font-size: 48px;
-    line-height: 130%;
+  }
+
+  h2 {
+    font-size: 32px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  h4 {
+    font-size: 18px;
   }
 
   button {
