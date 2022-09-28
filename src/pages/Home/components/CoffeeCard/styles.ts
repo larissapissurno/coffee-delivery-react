@@ -10,6 +10,11 @@ export const ContentWrapper = styled.div`
   border-radius: 6px 36px 6px 36px;
   width: 16rem;
   height: 19.375rem;
+
+  @media (max-width: 767px) {
+    width: 100%;
+    height: auto;
+  }
 `
 
 export const CardContent = styled.div`

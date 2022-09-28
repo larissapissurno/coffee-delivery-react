@@ -11,6 +11,10 @@ export function Home() {
         <StyledTitleL>Nossos cafés</StyledTitleL>
         <CoffeeCardList>
           <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
         </CoffeeCardList>
       </ContentContainer>
     </>
