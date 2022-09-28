@@ -1,5 +1,6 @@
 import { Minus, Plus, ShoppingCartSimple } from 'phosphor-react'
 import {
+  CardContent,
   CardFooter,
   ContentWrapper,
   Price,
@@ -12,10 +13,12 @@ import creamyEspressoImage from '@assets/coffees/mochaccino.png'
 export function CoffeeCard() {
   return (
     <ContentWrapper>
-      <img src={creamyEspressoImage} alt="" />
-      <span>Tradicional</span>
-      <h3>Expresso Tradicional</h3>
-      <p>O tradicional café feito com água quente e grãos moídos</p>
+      <CardContent>
+        <img src={creamyEspressoImage} alt="" />
+        <span>Tradicional</span>
+        <h3>Expresso Tradicional</h3>
+        <p>O tradicional café feito com água quente e grãos moídos</p>
+      </CardContent>
 
       <CardFooter>
         <Price>

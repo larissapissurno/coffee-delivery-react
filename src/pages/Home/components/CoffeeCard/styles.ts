@@ -3,14 +3,20 @@ import styled from 'styled-components'
 export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 
   background-color: ${(props) => props.theme['base-card']};
   border-radius: 6px 36px 6px 36px;
   width: 16rem;
-  /* height: 19.375rem; */
-  height: 18rem;
+  height: 19.375rem;
+`
+
+export const CardContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 
   img {
     margin-top: -20px;
@@ -45,7 +51,7 @@ export const ContentWrapper = styled.div`
 export const CardFooter = styled.div`
   margin-top: 2.0625rem;
   width: 100%;
-  padding: 0 1.25rem;
+  padding: 1.25rem;
 
   display: flex;
   align-items: center;
