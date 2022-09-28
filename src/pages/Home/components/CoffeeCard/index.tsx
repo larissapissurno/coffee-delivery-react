@@ -1,4 +1,4 @@
-import { Minus, Plus, ShoppingCartSimple } from 'phosphor-react'
+import { ShoppingCartSimple } from 'phosphor-react'
 import {
   CardContent,
   CardFooter,
@@ -6,11 +6,23 @@ import {
   Price,
   ShoppingCartButton,
   ShoppingSection,
-  StyledCounter,
 } from './styles'
 import creamyEspressoImage from '@assets/coffees/mochaccino.png'
+import { SelectQuantity } from '@components/SelectQuantity'
+import { useState } from 'react'
 
 export function CoffeeCard() {
+  const [totalValue, setTotalValue] = useState('9,90')
+  const price = 9.9
+
+  const handleQuantityUpdate = (quantity: number) => {
+    const calculatedPrice = price * quantity
+    const formattedPrice = new Intl.NumberFormat('pt-BR').format(
+      calculatedPrice,
+    )
+    setTotalValue(formattedPrice)
+  }
+
   return (
     <ContentWrapper>
       <CardContent>
@@ -24,19 +36,12 @@ export function CoffeeCard() {
         <Price>
           <span>R$</span>
           &nbsp;
-          <h3>9,90</h3>
+          <h3>{totalValue}</h3>
         </Price>
 
         <ShoppingSection>
-          <StyledCounter>
-            <button>
-              <Minus weight="bold" />
-            </button>
-            <span>1</span>
-            <button>
-              <Plus weight="bold" />
-            </button>
-          </StyledCounter>
+          <SelectQuantity onValueChange={handleQuantityUpdate} />
+
           <ShoppingCartButton>
             <ShoppingCartSimple weight="fill" />
           </ShoppingCartButton>
