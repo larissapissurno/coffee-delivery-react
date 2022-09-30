@@ -25,18 +25,8 @@ export const CardContent = styled.div`
 
   img {
     margin-top: -20px;
-  }
-
-  > span {
-    margin-top: 0.74rem;
-    padding: 0.25rem 0.5rem;
-    border-radius: 100px;
-    background-color: ${(props) => props.theme['primary-300']};
-
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 0.625rem;
-    color: ${(props) => props.theme['primary-700']};
+    width: 100px;
+    height: 100px;
   }
 
   h3 {
@@ -50,6 +40,21 @@ export const CardContent = styled.div`
 
     margin-top: 0.5rem;
     padding: 0 1.25rem;
+  }
+`
+
+export const TagList = styled.div`
+  margin-top: 0.74rem;
+  display: flex;
+  span {
+    padding: 0.25rem 0.5rem;
+    border-radius: 100px;
+    background-color: ${(props) => props.theme['primary-300']};
+
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.625rem;
+    color: ${(props) => props.theme['primary-700']};
   }
 `
 

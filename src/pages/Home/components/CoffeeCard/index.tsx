@@ -6,6 +6,7 @@ import {
   Price,
   ShoppingCartButton,
   ShoppingSection,
+  TagList,
 } from './styles'
 import creamyEspressoImage from '@assets/coffees/mochaccino.png'
 import { SelectQuantity } from '@components/SelectQuantity'
@@ -43,9 +44,11 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
       <CardContent>
         <img src={coffee.imageUrl} alt="" />
 
-        {coffee.tags.map((tag) => (
-          <span key={tag}>{tag}</span>
-        ))}
+        <TagList>
+          {coffee.tags.map((tag) => (
+            <span key={tag}>{tag}</span>
+          ))}
+        </TagList>
 
         <h3>{coffee.name}</h3>
         <p>{coffee.description}</p>
