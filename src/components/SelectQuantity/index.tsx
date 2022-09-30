@@ -8,10 +8,11 @@ interface SelectQuantityProps {
 export function SelectQuantity({ onValueChange }: SelectQuantityProps) {
   const [value, setValue] = useState(1)
 
-  const handleValueUpdate = (value: number): void => {
-    setValue((val) => Math.max(0, val + value))
+  const handleValueUpdate = (addValue: number): void => {
+    const newValue = Math.max(1, value + addValue)
+    setValue(newValue)
 
-    onValueChange(value)
+    onValueChange(newValue)
   }
   return (
     <StyledCounter>

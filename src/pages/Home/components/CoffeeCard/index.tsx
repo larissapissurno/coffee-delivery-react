@@ -17,9 +17,9 @@ export function CoffeeCard() {
 
   const handleQuantityUpdate = (quantity: number) => {
     const calculatedPrice = price * quantity
-    const formattedPrice = new Intl.NumberFormat('pt-BR').format(
-      calculatedPrice,
-    )
+    const formattedPrice = new Intl.NumberFormat('pt-BR', {
+      minimumFractionDigits: 2,
+    }).format(calculatedPrice)
     setTotalValue(formattedPrice)
   }
 

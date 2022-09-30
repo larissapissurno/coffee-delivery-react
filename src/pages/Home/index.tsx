@@ -15,6 +15,9 @@ export function Home() {
           <CoffeeCard />
           <CoffeeCard />
           <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
+          <CoffeeCard />
         </CoffeeCardList>
       </ContentContainer>
     </>
