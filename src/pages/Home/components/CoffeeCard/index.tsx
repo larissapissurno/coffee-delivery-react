@@ -9,27 +9,46 @@ import {
 } from './styles'
 import creamyEspressoImage from '@assets/coffees/mochaccino.png'
 import { SelectQuantity } from '@components/SelectQuantity'
-import { useState } from 'react'
+import React, { useState } from 'react'
 
-export function CoffeeCard() {
-  const [totalValue, setTotalValue] = useState('9,90')
-  const price = 9.9
+interface Coffee {
+  id: string
+  name: string
+  tags: string[]
+  description: string
+  price: number
+  imageUrl: string
+}
+
+interface CoffeeCardProps {
+  coffee: Coffee
+}
+
+const formattedCurrency = (value: number): string => {
+  return new Intl.NumberFormat('pt-BR', {
+    minimumFractionDigits: 2,
+  }).format(value)
+}
+
+export function CoffeeCard({ coffee }: CoffeeCardProps) {
+  const [totalValue, setTotalValue] = useState(formattedCurrency(coffee.price))
 
   const handleQuantityUpdate = (quantity: number) => {
-    const calculatedPrice = price * quantity
-    const formattedPrice = new Intl.NumberFormat('pt-BR', {
-      minimumFractionDigits: 2,
-    }).format(calculatedPrice)
-    setTotalValue(formattedPrice)
+    const calculatedPrice = coffee.price * quantity
+    setTotalValue(formattedCurrency(calculatedPrice))
   }
 
   return (
     <ContentWrapper>
       <CardContent>
-        <img src={creamyEspressoImage} alt="" />
-        <span>Tradicional</span>
-        <h3>Expresso Tradicional</h3>
-        <p>O tradicional café feito com água quente e grãos moídos</p>
+        <img src={coffee.imageUrl} alt="" />
+
+        {coffee.tags.map((tag) => (
+          <span key={tag}>{tag}</span>
+        ))}
+
+        <h3>{coffee.name}</h3>
+        <p>{coffee.description}</p>
       </CardContent>
 
       <CardFooter>
