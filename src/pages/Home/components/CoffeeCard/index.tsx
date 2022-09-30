@@ -8,18 +8,9 @@ import {
   ShoppingSection,
   TagList,
 } from './styles'
-import creamyEspressoImage from '@assets/coffees/mochaccino.png'
 import { SelectQuantity } from '@components/SelectQuantity'
-import React, { useState } from 'react'
-
-interface Coffee {
-  id: string
-  name: string
-  tags: string[]
-  description: string
-  price: number
-  imageUrl: string
-}
+import { useState } from 'react'
+import { Coffee } from 'src/reducers/coffees/reducer'
 
 interface CoffeeCardProps {
   coffee: Coffee
