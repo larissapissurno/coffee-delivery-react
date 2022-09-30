@@ -6,10 +6,10 @@ interface SelectQuantityProps {
   onValueChange: (value: number) => void
 }
 export function SelectQuantity({ onValueChange }: SelectQuantityProps) {
-  const [value, setValue] = useState(1)
+  const [value, setValue] = useState(0)
 
   const handleValueUpdate = (addValue: number): void => {
-    const newValue = Math.max(1, value + addValue)
+    const newValue = Math.max(0, value + addValue)
     setValue(newValue)
 
     onValueChange(newValue)

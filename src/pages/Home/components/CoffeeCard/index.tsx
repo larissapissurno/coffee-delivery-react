@@ -35,7 +35,8 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
   const [totalValue, setTotalValue] = useState(formattedCurrency(coffee.price))
 
   const handleQuantityUpdate = (quantity: number) => {
-    const calculatedPrice = coffee.price * quantity
+    const minQuantityToCalculate = Math.max(quantity, 1)
+    const calculatedPrice = coffee.price * minQuantityToCalculate
     setTotalValue(formattedCurrency(calculatedPrice))
   }
 
