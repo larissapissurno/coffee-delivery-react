@@ -10,7 +10,7 @@ export interface Coffee {
   imageUrl: string
 }
 
-interface ShoppingCartItem extends Coffee {
+export interface ShoppingCartItem extends Coffee {
   quantity: number
 }
 
@@ -21,13 +21,13 @@ interface ShoppingCartState {
 export function shoppingCartReducer(
   state: ShoppingCartState,
   action: IAction<any>,
-) {
+): ShoppingCartState {
   console.log(state)
   console.log(action)
 
   const map = new Map<
     EActionTypes,
-    (state: ShoppingCartState, action: IAction<any>) => void
+    (state: ShoppingCartState, action: any) => ShoppingCartState
   >([
     [EActionTypes.UPDATE_COFFEE_QUANTITY, updateCoffee],
     [EActionTypes.REMOVE_COFFEE, removeCoffee],
@@ -39,7 +39,7 @@ export function shoppingCartReducer(
 function updateCoffee(
   state: ShoppingCartState,
   action: IAction<TUpdateCoffeeAction>,
-) {
+): ShoppingCartState {
   return produce(state, (draft) => {
     const { coffee, quantity } = action.payload
     const existentCoffee = draft.items.find((item) => item.id === coffee.id)
@@ -68,7 +68,7 @@ function updateCoffee(
 function removeCoffee(
   state: ShoppingCartState,
   action: IAction<{ coffeeId: string }>,
-) {
+): ShoppingCartState {
   return produce(state, (draft) => {
     draft.items = draft.items.filter(
       (coffee) => coffee.id !== action.payload.coffeeId,
