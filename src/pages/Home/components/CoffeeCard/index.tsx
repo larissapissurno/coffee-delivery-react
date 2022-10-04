@@ -10,7 +10,7 @@ import {
 } from './styles'
 import { SelectQuantity } from '@components/SelectQuantity'
 import { useState } from 'react'
-import { Coffee } from 'src/reducers/coffees/reducer'
+import { Coffee } from 'src/reducers/shoppingCart/reducer'
 
 interface CoffeeCardProps {
   coffee: Coffee

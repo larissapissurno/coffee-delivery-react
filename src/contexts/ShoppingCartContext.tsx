@@ -1,5 +1,5 @@
 import { createContext, ReactNode } from 'react'
-import { Coffee } from 'src/reducers/coffees/reducer'
+import { Coffee } from 'src/reducers/shoppingCart/reducer'
 
 interface ShoppingCartContextData {
   coffees: Coffee[]

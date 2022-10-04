@@ -1,7 +1,7 @@
 import { Coffee } from './reducer'
 
 export enum EActionTypes {
-  ADD_COFFEE = 'ADD_COFFEE',
+  UPDATE_COFFEE_QUANTITY = 'UPDATE_COFFEE_QUANTITY',
   REMOVE_COFFEE = 'REMOVE_COFFEE',
 }
 
@@ -10,12 +10,16 @@ export interface IAction<T> {
   payload: T
 }
 
-export type TAddCoffeeAction = { coffee: Coffee }
-export function addCoffeeAction(coffee: Coffee): IAction<TAddCoffeeAction> {
+export type TUpdateCoffeeAction = { coffee: Coffee; quantity: number }
+export function updateCoffeeAction({
+  coffee,
+  quantity,
+}: TUpdateCoffeeAction): IAction<TUpdateCoffeeAction> {
   return {
-    type: EActionTypes.ADD_COFFEE,
+    type: EActionTypes.UPDATE_COFFEE_QUANTITY,
     payload: {
       coffee,
+      quantity,
     },
   }
 }
