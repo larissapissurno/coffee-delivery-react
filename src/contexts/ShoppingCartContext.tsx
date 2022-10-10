@@ -12,7 +12,7 @@ import { SHOPPING_CART_STATE } from 'src/_shared/constants/local-storage-keys.co
 
 interface ShoppingCartContextData {
   items: ShoppingCartItem[]
-  updateCoffeeQuantity: (coffee: Coffee) => void
+  updateCoffeeQuantity: (coffee: Coffee, quantity: number) => void
   removeCoffee: (coffeeId: string) => void
 }
 

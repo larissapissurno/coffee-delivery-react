@@ -22,9 +22,6 @@ export function shoppingCartReducer(
   state: ShoppingCartState,
   action: IAction<any>,
 ): ShoppingCartState {
-  console.log(state)
-  console.log(action)
-
   const map = new Map<
     EActionTypes,
     (state: ShoppingCartState, action: any) => ShoppingCartState

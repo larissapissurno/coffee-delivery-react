@@ -9,8 +9,9 @@ import {
   TagList,
 } from './styles'
 import { SelectQuantity } from '@components/SelectQuantity'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { Coffee } from 'src/reducers/shoppingCart/reducer'
+import { ShoppingCartContext } from 'src/contexts/ShoppingCartContext'
 
 interface CoffeeCardProps {
   coffee: Coffee
@@ -24,10 +25,13 @@ const formattedCurrency = (value: number): string => {
 
 export function CoffeeCard({ coffee }: CoffeeCardProps) {
   const [totalValue, setTotalValue] = useState(formattedCurrency(coffee.price))
+  const { updateCoffeeQuantity } = useContext(ShoppingCartContext)
 
   const handleQuantityUpdate = (quantity: number) => {
-    const minQuantityToCalculate = Math.max(quantity, 1)
-    const calculatedPrice = coffee.price * minQuantityToCalculate
+    updateCoffeeQuantity(coffee, quantity)
+
+    const minQuantityOnDisplay = Math.max(quantity, 1)
+    const calculatedPrice = coffee.price * minQuantityOnDisplay
     setTotalValue(formattedCurrency(calculatedPrice))
   }
 
