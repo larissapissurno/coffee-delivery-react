@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css, DefaultTheme, StyledComponent } from 'styled-components'
 
 export const StyledNav = styled.nav`
   padding: 2rem 0;
@@ -27,9 +27,36 @@ const ButtonBase = styled.button`
   font-size: 0.875rem;
 `
 
-export const ButtonPrimary = styled(ButtonBase)`
+interface ButtonPrimaryProps {
+  badge?: number
+}
+export const ButtonPrimary = styled<
+  StyledComponent<'button', DefaultTheme, ButtonPrimaryProps, never>
+>(ButtonBase)`
   color: ${(props) => props.theme['primary-700']};
   background-color: ${(props) => props.theme['primary-300']};
+  position: relative;
+
+  ${(props) =>
+    props.badge &&
+    props.badge > 0 &&
+    css<ButtonPrimaryProps>`
+      &::after {
+        content: '${(props) => props.badge}';
+        position: absolute;
+        background: ${(props) => props.theme['primary-700']};
+        text-align: center;
+        font-size: 0.75rem;
+        border-radius: 50%;
+        color: white;
+        border: 1px solid ${(props) => props.theme['primary-700']};
+        line-height: 1.25rem;
+        min-height: 1.25rem;
+        min-width: 1.25rem;
+        right: -0.625rem;
+        top: -0.625rem;
+      }
+    `}
 `
 
 export const ButtonAccent = styled(ButtonBase)`

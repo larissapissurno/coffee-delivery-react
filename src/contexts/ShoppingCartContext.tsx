@@ -1,4 +1,10 @@
-import { createContext, ReactNode, useEffect, useReducer } from 'react'
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useReducer,
+} from 'react'
 import {
   removeCoffeeAction,
   updateCoffeeAction,
@@ -9,14 +15,19 @@ import {
   shoppingCartReducer,
 } from 'src/reducers/shoppingCart/reducer'
 import { SHOPPING_CART_STATE } from 'src/_shared/constants/local-storage-keys.constants'
-
+import data from '@assets/coffees/data.json'
 interface ShoppingCartContextData {
   items: ShoppingCartItem[]
   updateCoffeeQuantity: (coffee: Coffee, quantity: number) => void
   removeCoffee: (coffeeId: string) => void
+  getAllCoffees: () => ShoppingCartItem[]
 }
 
 export const ShoppingCartContext = createContext({} as ShoppingCartContextData)
+
+export function useShoppingCart(): ShoppingCartContextData {
+  return useContext(ShoppingCartContext)
+}
 
 interface ShoppingCartContextProviderProps {
   children: ReactNode
@@ -57,6 +68,17 @@ export function ShoppingCartContextProvider({
     dispatch(removeCoffeeAction(coffeeId))
   }
 
+  function getAllCoffees() {
+    const mapItemQuantity = items.reduce((prev, curr: ShoppingCartItem) => {
+      return prev.set(curr.id, curr.quantity)
+    }, new Map<string, number>())
+
+    return data.map((coffee: ShoppingCartItem) => {
+      coffee.quantity = mapItemQuantity.get(coffee.id) ?? 0
+      return coffee
+    })
+  }
+
   return (
     <ShoppingCartContext.Provider
       value={
@@ -64,6 +86,7 @@ export function ShoppingCartContextProvider({
           items,
           updateCoffeeQuantity,
           removeCoffee,
+          getAllCoffees,
         } as ShoppingCartContextData
       }
     >

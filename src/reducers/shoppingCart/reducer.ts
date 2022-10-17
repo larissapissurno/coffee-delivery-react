@@ -49,7 +49,7 @@ function updateCoffee(
       return
     }
 
-    if (!existentCoffee) {
+    if (!existentCoffee && quantity > 0) {
       draft.items.push({
         ...coffee,
         quantity,
@@ -58,7 +58,9 @@ function updateCoffee(
       return
     }
 
-    existentCoffee.quantity = quantity
+    if (existentCoffee) {
+      existentCoffee.quantity = quantity
+    }
   })
 }
 

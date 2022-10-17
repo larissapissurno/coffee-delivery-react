@@ -10,11 +10,11 @@ import {
 } from './styles'
 import { SelectQuantity } from '@components/SelectQuantity'
 import { useState, useContext } from 'react'
-import { Coffee } from 'src/reducers/shoppingCart/reducer'
+import { ShoppingCartItem } from 'src/reducers/shoppingCart/reducer'
 import { ShoppingCartContext } from 'src/contexts/ShoppingCartContext'
 
 interface CoffeeCardProps {
-  coffee: Coffee
+  coffee: ShoppingCartItem
 }
 
 const formattedCurrency = (value: number): string => {
@@ -58,7 +58,10 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
         </Price>
 
         <ShoppingSection>
-          <SelectQuantity onValueChange={handleQuantityUpdate} />
+          <SelectQuantity
+            quantity={coffee.quantity}
+            onValueChange={handleQuantityUpdate}
+          />
 
           <ShoppingCartButton>
             <ShoppingCartSimple weight="fill" />

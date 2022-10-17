@@ -1,18 +1,26 @@
+import { useEffect, useState } from 'react'
+import { useShoppingCart } from 'src/contexts/ShoppingCartContext'
+import { ShoppingCartItem } from 'src/reducers/shoppingCart/reducer'
 import { ContentContainer, StyledTitleL } from '../../styles/global'
 import { CoffeeCard } from './components/CoffeeCard'
 import { IntroSection } from './components/IntroSection'
 import { CoffeeCardList } from './styles'
-import data from '@assets/coffees/data.json'
 
 export function Home() {
-  console.log(data)
+  const { getAllCoffees } = useShoppingCart()
+  const [coffees, setCoffees] = useState<ShoppingCartItem[]>([])
+
+  useEffect(() => {
+    setCoffees(getAllCoffees())
+  }, [getAllCoffees])
+
   return (
     <>
       <IntroSection />
       <ContentContainer>
         <StyledTitleL>Nossos cafés</StyledTitleL>
         <CoffeeCardList>
-          {data.map((coffee) => (
+          {coffees.map((coffee) => (
             <CoffeeCard key={coffee.id} coffee={coffee} />
           ))}
         </CoffeeCardList>
