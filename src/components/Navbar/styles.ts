@@ -1,6 +1,13 @@
 import styled, { css, DefaultTheme, StyledComponent } from 'styled-components'
 
-export const StyledNav = styled.nav`
+export const FixedNav = styled.nav`
+  position: fixed;
+  width: 100%;
+
+  background-color: ${(props) => props.theme.background};
+`
+
+export const StyledContent = styled.div`
   padding: 2rem 0;
 
   display: flex;

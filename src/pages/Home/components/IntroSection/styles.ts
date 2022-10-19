@@ -7,6 +7,7 @@ export const Background = styled.section`
   background-image: url(../../../src/assets/images/intro-background.png);
   background-size: 100vw 34rem;
   background-repeat: no-repeat;
+  margin-top: 5rem;
 `
 export const Content = styled(ContentContainer)`
   padding: 5.75rem 0;
