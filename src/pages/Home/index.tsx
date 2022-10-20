@@ -21,7 +21,7 @@ export function Home() {
         <StyledTitleL>Nossos cafés</StyledTitleL>
         <CoffeeCardList>
           {coffees.map((coffee) => (
-            <CoffeeCard key={coffee.id} coffee={coffee} />
+            <CoffeeCard key={coffee.id} coffee={{ ...coffee, quantity: 1 }} />
           ))}
         </CoffeeCardList>
       </ContentContainer>

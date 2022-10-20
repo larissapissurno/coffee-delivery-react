@@ -25,14 +25,18 @@ const formattedCurrency = (value: number): string => {
 
 export function CoffeeCard({ coffee }: CoffeeCardProps) {
   const [totalValue, setTotalValue] = useState(formattedCurrency(coffee.price))
+  const [quantity, setQuantity] = useState(coffee.quantity)
   const { updateCoffeeQuantity } = useContext(ShoppingCartContext)
 
-  const handleQuantityUpdate = (quantity: number) => {
-    updateCoffeeQuantity(coffee, quantity)
-
-    const minQuantityOnDisplay = Math.max(quantity, 1)
+  const handleQuantityUpdate = (updatedQuantity: number) => {
+    setQuantity(updatedQuantity)
+    const minQuantityOnDisplay = Math.max(updatedQuantity, 1)
     const calculatedPrice = coffee.price * minQuantityOnDisplay
     setTotalValue(formattedCurrency(calculatedPrice))
+  }
+
+  const handleUpdateShoppingCart = () => {
+    updateCoffeeQuantity(coffee, quantity)
   }
 
   return (
@@ -63,7 +67,7 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
             onValueChange={handleQuantityUpdate}
           />
 
-          <ShoppingCartButton>
+          <ShoppingCartButton onClick={handleUpdateShoppingCart}>
             <ShoppingCartSimple weight="fill" />
           </ShoppingCartButton>
         </ShoppingSection>
