@@ -43,6 +43,12 @@ export const ButtonPrimary = styled<
   color: ${(props) => props.theme['primary-700']};
   background-color: ${(props) => props.theme['primary-300']};
   position: relative;
+  cursor: pointer;
+  transition: color 0.1s;
+
+  &:hover {
+    color: ${(props) => props.theme['primary-500']};
+  }
 
   ${(props) =>
     props.badge &&
