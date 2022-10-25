@@ -12,6 +12,7 @@ import { SelectQuantity } from '@components/SelectQuantity'
 import { useState, useContext } from 'react'
 import { ShoppingCartItem } from 'src/reducers/shoppingCart/reducer'
 import { ShoppingCartContext } from 'src/contexts/ShoppingCartContext'
+import { TitleS } from 'src/styles/global'
 
 interface CoffeeCardProps {
   coffee: ShoppingCartItem
@@ -50,7 +51,7 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
           ))}
         </TagList>
 
-        <h3>{coffee.name}</h3>
+        <TitleS>{coffee.name}</TitleS>
         <p>{coffee.description}</p>
       </CardContent>
 

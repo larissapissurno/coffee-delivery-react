@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useShoppingCart } from 'src/contexts/ShoppingCartContext'
 import { ShoppingCartItem } from 'src/reducers/shoppingCart/reducer'
-import { ContentContainer, StyledTitleL } from '../../styles/global'
+import { ContentContainer, TitleL } from '../../styles/global'
 import { CoffeeCard } from './components/CoffeeCard'
 import { IntroSection } from './components/IntroSection'
 import { CoffeeCardList } from './styles'
@@ -18,7 +18,7 @@ export function Home() {
     <>
       <IntroSection />
       <ContentContainer>
-        <StyledTitleL>Nossos cafés</StyledTitleL>
+        <TitleL color="base-subtitle">Nossos cafés</TitleL>
         <CoffeeCardList>
           {coffees.map((coffee) => (
             <CoffeeCard key={coffee.id} coffee={{ ...coffee, quantity: 1 }} />
