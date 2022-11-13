@@ -48,3 +48,9 @@ export const StyledForm = styled.form`
   grid-template-columns: 60% 40%;
   gap: 2rem;
 `
+
+export const PaymentTypeSection = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.75rem;
+`

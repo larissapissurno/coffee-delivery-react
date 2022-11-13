@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css, DefaultTheme } from 'styled-components'
 
 interface TitleProps {
   color?: 'base-title' | 'base-subtitle'
@@ -25,14 +25,20 @@ export const TitleXS = styled.h4<TitleProps>`
   color: ${(props) => props.theme[props.color || 'base-subtitle']};
 `
 
-export const TextRegularL = styled.p<TitleProps>`
+interface TextRegularProps {
+  color?: keyof DefaultTheme
+}
+const TextRegular = styled.p<TextRegularProps>`
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  font-size: 1.25rem;
-  line-height: 130%;
+  line-height: 1.3;
 
-  color: ${(props) => props.theme[props.color || 'base-subtitle']};
+  color: ${(props) => props.theme[props.color || 'base-text']};
+`
+
+export const TextRegularL = styled(TextRegular)`
+  font-size: 1.25rem;
 
   ${(props) =>
     (!props.color || props.color === 'base-subtitle') &&
@@ -41,8 +47,10 @@ export const TextRegularL = styled.p<TitleProps>`
     `}
 `
 
-export const TextRegularM = styled.p`
-  color: ${(props) => props.theme['base-text']};
+export const TextRegularM = styled(TextRegular)`
   font-size: 1rem;
-  line-height: 1.3;
+`
+
+export const TextRegularS = styled(TextRegular)`
+  font-size: 0.875rem;
 `
