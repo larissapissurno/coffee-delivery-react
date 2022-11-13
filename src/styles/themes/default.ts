@@ -19,5 +19,5 @@ export const defaultTheme = {
   'accent-500': '#8047F8',
   'accent-700': '#4B2995',
 
-  'container-size': '85vw',
+  'container-size': '75vw',
 }

@@ -12,7 +12,7 @@ import { SelectQuantity } from '@components/SelectQuantity'
 import { useState, useContext } from 'react'
 import { ShoppingCartItem } from 'src/reducers/shoppingCart/reducer'
 import { ShoppingCartContext } from 'src/contexts/ShoppingCartContext'
-import { TitleS } from 'src/styles/global'
+import { TitleS } from 'src/styles/typography'
 
 interface CoffeeCardProps {
   coffee: ShoppingCartItem

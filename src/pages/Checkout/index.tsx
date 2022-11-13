@@ -1,6 +1,14 @@
+import { Input } from '@components/Input/styles'
 import { CurrencyDollar, MapPinLine } from 'phosphor-react'
-import { TitleXS } from 'src/styles/typography'
-import { ContentWrapper, StyledForm } from './styles'
+import { TextRegularM, TitleXS } from 'src/styles/typography'
+import {
+  ContentWrapper,
+  Grid,
+  LocaleInfo,
+  OrderHeader,
+  PaymentInfo,
+  StyledForm,
+} from './styles'
 
 export function Checkout() {
   return (
@@ -9,42 +17,46 @@ export function Checkout() {
         <div>
           <TitleXS>Complete seu pedido</TitleXS>
 
-          <div>
-            <div>
-              <MapPinLine />
+          <LocaleInfo>
+            <OrderHeader variant="primary-700">
+              <MapPinLine size={22} />
 
               <div>
-                <p>Endereço de Entrega</p>
+                <TextRegularM color="base-subtitle">
+                  Endereço de Entrega
+                </TextRegularM>
                 <p>Informe o endereço onde deseja receber seu pedido</p>
               </div>
-            </div>
+            </OrderHeader>
 
-            <div>
-              <input id="zipCode" />
-              <input id="street" />
-              <input id="number" />
-              <input id="complement" />
-              <input id="district" />
-              <input id="town" />
-              <input id="state" />
-            </div>
-          </div>
-          <div>
-            <div>
-              <CurrencyDollar />
+            <Grid>
+              <Input size={30} id="zipCode" placeholder="CEP" />
+              <Input size={100} id="street" placeholder="Rua" />
+              <Input size={30} id="number" placeholder="Número" />
+              <Input size={65} id="complement" placeholder="Complemento" grow />
+              <Input size={30} id="district" placeholder="Bairro" />
+              <Input size={55} id="town" placeholder="Cidade" />
+              <Input size={10} id="state" placeholder="UF" grow />
+            </Grid>
+          </LocaleInfo>
+          <PaymentInfo>
+            <OrderHeader variant="accent-700">
+              <CurrencyDollar size={22} />
 
               <div>
-                <p>Pagamento</p>
+                <TextRegularM color="base-subtitle">Pagamento</TextRegularM>
                 <p>
                   O pagamento é feito na entrega. Escolha a forma que deseja
                   pagar
                 </p>
               </div>
-            </div>
-          </div>
+            </OrderHeader>
+          </PaymentInfo>
         </div>
 
-        <div></div>
+        <div>
+          <TitleXS>Complete seu pedido</TitleXS>
+        </div>
       </StyledForm>
     </ContentWrapper>
   )
