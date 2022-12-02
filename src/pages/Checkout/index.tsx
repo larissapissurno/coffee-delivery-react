@@ -6,6 +6,7 @@ import {
   CurrencyDollar,
   MapPinLine,
   Money,
+  Trash,
 } from 'phosphor-react'
 import { TextRegularM, TextRegularS, TitleXS } from 'src/styles/typography'
 import {
@@ -15,8 +16,13 @@ import {
   OrderHeader,
   PaymentInfo,
   PaymentTypeSection,
+  SelectedCoffee,
+  SelectedCoffeeDescription,
+  SelectedCoffees,
   StyledForm,
 } from './styles'
+import coffeeImg from 'src/assets/coffees/american.png'
+import { SelectQuantity } from '@components/SelectQuantity'
 
 export function Checkout() {
   return (
@@ -71,7 +77,31 @@ export function Checkout() {
         </div>
 
         <div>
-          <TitleXS>Complete seu pedido</TitleXS>
+          <TitleXS>Cafés selecionados</TitleXS>
+
+          <SelectedCoffees>
+            <SelectedCoffee>
+              <div>
+                <img src={coffeeImg} alt="a cup of coffee" />
+
+                <SelectedCoffeeDescription>
+                  <TextRegularM>Expresso Tradicional</TextRegularM>
+
+                  <div>
+                    <SelectQuantity
+                      quantity={1}
+                      onValueChange={() => true}
+                    ></SelectQuantity>
+                    <button type="button">
+                      <Trash size={16} /> Remover
+                    </button>
+                  </div>
+                </SelectedCoffeeDescription>
+              </div>
+
+              <span>R$ 9,90</span>
+            </SelectedCoffee>
+          </SelectedCoffees>
         </div>
       </StyledForm>
     </ContentWrapper>
