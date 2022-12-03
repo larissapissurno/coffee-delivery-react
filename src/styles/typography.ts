@@ -27,11 +27,12 @@ export const TitleXS = styled.h4<TitleProps>`
 
 interface TextRegularProps {
   color?: keyof DefaultTheme
+  bold?: boolean
 }
 const TextRegular = styled.p<TextRegularProps>`
   font-family: 'Roboto';
   font-style: normal;
-  font-weight: 400;
+  font-weight: ${(props) => (props.bold ? 'bold' : 400)};
   line-height: 1.3;
 
   color: ${(props) => props.theme[props.color || 'base-text']};
