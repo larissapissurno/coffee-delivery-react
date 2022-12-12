@@ -1,7 +1,7 @@
 import styled, { css, DefaultTheme } from 'styled-components'
 
 interface TitleProps {
-  color?: 'base-title' | 'base-subtitle'
+  color?: keyof DefaultTheme
 }
 export const TitleXL = styled.h1<TitleProps>`
   font-weight: 800;

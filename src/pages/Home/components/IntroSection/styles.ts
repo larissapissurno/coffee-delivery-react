@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { DefaultTheme } from 'styled-components'
 import { ContentContainer } from '../../../../styles/global'
 
 export const Background = styled.section`
@@ -43,26 +43,26 @@ export const BulletList = styled.div`
   margin-top: 4.125rem;
 `
 
-interface BulletProps {
-  variant: 'primary-500' | 'primary-700' | 'base-text' | 'accent-500'
-}
-export const Bullet = styled.div<BulletProps>`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 8px;
+// interface BulletProps {
+//   variant: keyof DefaultTheme
+// }
+// export const Bullet = styled.div<BulletProps>`
+//   display: flex;
+//   justify-content: flex-start;
+//   align-items: center;
+//   gap: 8px;
 
-  & > div {
-    flex: 0 0 auto;
-    height: 2rem;
-    width: 2rem;
+//   & > div {
+//     flex: 0 0 auto;
+//     height: 2rem;
+//     width: 2rem;
 
-    border-radius: 50%;
-    background-color: ${(props) => props.theme[props.variant]};
-    color: ${(props) => props.theme.background};
+//     border-radius: 50%;
+//     background-color: ${(props) => props.theme[props.variant]};
+//     color: ${(props) => props.theme.background};
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-`
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//   }
+// `

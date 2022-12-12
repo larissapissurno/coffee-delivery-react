@@ -1,7 +1,6 @@
 import { ShoppingCart, Package, Timer, Coffee } from 'phosphor-react'
 import {
   ImageWrapper,
-  Bullet,
   BulletList,
   Content,
   Background,
@@ -9,6 +8,7 @@ import {
 } from './styles'
 import introCoffeeImg from '../../../../assets/images/intro-coffee.png'
 import { TextRegularL, TextRegularM, TitleXL } from 'src/styles/typography'
+import { Bullet } from 'src/styles/global'
 
 export function IntroSection() {
   return (
