@@ -120,3 +120,14 @@ export const SelectedCoffeeDescription = styled.div`
     background-color: ${(props) => props.theme['base-hover']};
   }
 `
+
+export const SelectedCoffeesTotals = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  div {
+    display: flex;
+    justify-content: space-between;
+  }
+`

@@ -8,7 +8,12 @@ import {
   Money,
   Trash,
 } from 'phosphor-react'
-import { TextRegularM, TextRegularS, TitleXS } from 'src/styles/typography'
+import {
+  TextRegularL,
+  TextRegularM,
+  TextRegularS,
+  TitleXS,
+} from 'src/styles/typography'
 import {
   ContentWrapper,
   Grid,
@@ -19,6 +24,7 @@ import {
   SelectedCoffee,
   SelectedCoffeeDescription,
   SelectedCoffees,
+  SelectedCoffeesTotals,
   StyledForm,
 } from './styles'
 import coffeeImg from 'src/assets/coffees/american.png'
@@ -101,6 +107,26 @@ export function Checkout() {
 
               <span>R$ 9,90</span>
             </SelectedCoffee>
+
+            <SelectedCoffeesTotals>
+              <div>
+                <TextRegularS>Total de itens</TextRegularS>
+
+                <TextRegularM>R$ 29,70</TextRegularM>
+              </div>
+
+              <div>
+                <TextRegularS>Entrega</TextRegularS>
+
+                <TextRegularM>R$ 3,50</TextRegularM>
+              </div>
+
+              <div>
+                <TextRegularL bold>Total</TextRegularL>
+
+                <TextRegularL bold>R$ 33,20</TextRegularL>
+              </div>
+            </SelectedCoffeesTotals>
           </SelectedCoffees>
         </div>
       </StyledForm>
