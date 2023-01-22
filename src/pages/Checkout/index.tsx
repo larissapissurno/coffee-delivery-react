@@ -5,7 +5,7 @@ import { z } from 'zod'
 import { CheckoutSchema } from './formValidations'
 import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { CheckoutForm } from './components/ShippingAddress'
+import { CheckoutForm } from './components/CheckoutForm'
 
 export type CheckoutFormData = z.infer<typeof CheckoutSchema>
 
