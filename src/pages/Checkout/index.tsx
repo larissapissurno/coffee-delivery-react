@@ -1,28 +1,11 @@
-import { Input } from '@components/Input/styles'
-import { PaymentType } from '@components/PaymentType'
-import {
-  Bank,
-  CreditCard,
-  CurrencyDollar,
-  MapPinLine,
-  Money,
-} from 'phosphor-react'
-import { TextRegularM, TextRegularS, TitleXS } from 'src/styles/typography'
-import {
-  ContentWrapper,
-  Grid,
-  LocaleInfo,
-  OrderHeader,
-  PaymentInfo,
-  PaymentTypeSection,
-  StyledForm,
-} from './styles'
+import { TitleXS } from 'src/styles/typography'
+import { ContentWrapper, StyledForm } from './styles'
 import { SelectedCoffees } from './components/SelectedCoffees'
 import { z } from 'zod'
 import { CheckoutSchema } from './formValidations'
 import { FormProvider, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { ShippingAddressForm } from './components/ShippingAddress'
+import { CheckoutForm } from './components/ShippingAddress'
 
 export type CheckoutFormData = z.infer<typeof CheckoutSchema>
 
@@ -38,27 +21,7 @@ export function Checkout() {
           <TitleXS>Complete seu pedido</TitleXS>
 
           <FormProvider {...form}>
-            <ShippingAddressForm />
-
-            <PaymentInfo>
-              <OrderHeader variant="accent-700">
-                <CurrencyDollar size={22} />
-
-                <div>
-                  <TextRegularM color="base-subtitle">Pagamento</TextRegularM>
-                  <TextRegularS>
-                    O pagamento é feito na entrega. Escolha a forma que deseja
-                    pagar
-                  </TextRegularS>
-                </div>
-              </OrderHeader>
-
-              <PaymentTypeSection>
-                <PaymentType icon={<CreditCard />} label="Cartão de Crédito" />
-                <PaymentType icon={<Bank />} label="Cartão de Débito" />
-                <PaymentType icon={<Money />} label="Dinheiro" />
-              </PaymentTypeSection>
-            </PaymentInfo>
+            <CheckoutForm />
           </FormProvider>
         </div>
 
