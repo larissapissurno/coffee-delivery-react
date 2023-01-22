@@ -11,12 +11,8 @@ export interface Coffee {
   imageUrl: string
 }
 
-export interface ShoppingCartItem {
-  id: string
-  name: string
-  price: number
+export interface ShoppingCartItem extends Coffee {
   quantity: number
-  imageUrl: string
 }
 
 interface ShoppingCartState {

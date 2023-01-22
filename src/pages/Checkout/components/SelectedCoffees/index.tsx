@@ -4,35 +4,40 @@ import {
   SelectedCoffeesTotals,
   SelectedCoffeesWrapper,
 } from './styles'
-import coffeeImg from 'src/assets/coffees/american.png'
 import { SelectQuantity } from '@components/SelectQuantity'
 import { Trash } from 'phosphor-react'
 import { TextRegularM, TextRegularS, TextRegularL } from 'src/styles/typography'
+import { useShoppingCart } from 'src/contexts/ShoppingCartContext'
+import { formattedCurrency } from 'src/_shared/utils/utils'
 
 export function SelectedCoffees() {
+  const { items } = useShoppingCart()
+
   return (
     <SelectedCoffeesWrapper>
-      <SelectedCoffee>
-        <div>
-          <img src={coffeeImg} alt="a cup of coffee" />
+      {items.map((item) => (
+        <SelectedCoffee key={item.id}>
+          <div>
+            <img src={item.imageUrl} alt="" />
 
-          <SelectedCoffeeDescription>
-            <TextRegularM>Expresso Tradicional</TextRegularM>
+            <SelectedCoffeeDescription>
+              <TextRegularM>{item.name}</TextRegularM>
 
-            <div>
-              <SelectQuantity
-                quantity={1}
-                onValueChange={() => true}
-              ></SelectQuantity>
-              <button type="button">
-                <Trash size={16} /> Remover
-              </button>
-            </div>
-          </SelectedCoffeeDescription>
-        </div>
+              <div>
+                <SelectQuantity
+                  quantity={item.quantity}
+                  onValueChange={() => true}
+                ></SelectQuantity>
+                <button type="button">
+                  <Trash size={16} /> Remover
+                </button>
+              </div>
+            </SelectedCoffeeDescription>
+          </div>
 
-        <span>R$ 9,90</span>
-      </SelectedCoffee>
+          <span>{formattedCurrency(item.price)}</span>
+        </SelectedCoffee>
+      ))}
 
       <SelectedCoffeesTotals>
         <div>

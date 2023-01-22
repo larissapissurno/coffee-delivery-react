@@ -13,15 +13,10 @@ import { useState, useContext } from 'react'
 import { ShoppingCartItem } from 'src/reducers/shoppingCart/reducer'
 import { ShoppingCartContext } from 'src/contexts/ShoppingCartContext'
 import { TitleS } from 'src/styles/typography'
+import { formattedCurrency } from 'src/_shared/utils/utils'
 
 interface CoffeeCardProps {
   coffee: ShoppingCartItem
-}
-
-const formattedCurrency = (value: number): string => {
-  return new Intl.NumberFormat('pt-BR', {
-    minimumFractionDigits: 2,
-  }).format(value)
 }
 
 export function CoffeeCard({ coffee }: CoffeeCardProps) {
@@ -57,8 +52,6 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
 
       <CardFooter>
         <Price>
-          <span>R$</span>
-          &nbsp;
           <h3>{totalValue}</h3>
         </Price>
 
