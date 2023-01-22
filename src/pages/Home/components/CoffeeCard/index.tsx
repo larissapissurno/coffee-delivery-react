@@ -11,7 +11,10 @@ import {
 import { SelectQuantity } from '@components/SelectQuantity'
 import { useState, useContext } from 'react'
 import { ShoppingCartItem } from 'src/reducers/shoppingCart/reducer'
-import { ShoppingCartContext } from 'src/contexts/ShoppingCartContext'
+import {
+  ShoppingCartContext,
+  useShoppingCart,
+} from 'src/contexts/ShoppingCartContext'
 import { TitleS } from 'src/styles/typography'
 import { formattedCurrency } from 'src/_shared/utils/utils'
 
@@ -22,7 +25,7 @@ interface CoffeeCardProps {
 export function CoffeeCard({ coffee }: CoffeeCardProps) {
   const [totalValue, setTotalValue] = useState(formattedCurrency(coffee.price))
   const [quantity, setQuantity] = useState(coffee.quantity)
-  const { updateCoffeeQuantity } = useContext(ShoppingCartContext)
+  const { updateCoffeeQuantity } = useShoppingCart()
 
   const handleQuantityUpdate = (updatedQuantity: number) => {
     setQuantity(updatedQuantity)

@@ -12,10 +12,13 @@ import { useShoppingCart } from 'src/contexts/ShoppingCartContext'
 import { formattedCurrency } from 'src/_shared/utils/utils'
 
 export function SelectedCoffees() {
-  const { items } = useShoppingCart()
+  const { items, updateCoffeeQuantity, removeCoffee } = useShoppingCart()
 
   const deliveryFee = 3.5
-  const totalItemsValue = items.reduce((acc, item) => acc + item.price, 0)
+  const totalItemsValue = items.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0,
+  )
   const totalValue = totalItemsValue + deliveryFee
 
   return (
@@ -31,9 +34,14 @@ export function SelectedCoffees() {
               <div>
                 <SelectQuantity
                   quantity={item.quantity}
-                  onValueChange={() => true}
+                  onValueChange={(quantity: number) =>
+                    updateCoffeeQuantity(item, quantity)
+                  }
                 ></SelectQuantity>
-                <RemoveCoffeeButton type="button">
+                <RemoveCoffeeButton
+                  type="button"
+                  onClick={() => removeCoffee(item.id)}
+                >
                   <Trash size={16} /> Remover
                 </RemoveCoffeeButton>
               </div>
