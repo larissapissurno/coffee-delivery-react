@@ -18,57 +18,48 @@ import {
   StyledForm,
 } from './styles'
 import { SelectedCoffees } from './components/SelectedCoffees'
+import { z } from 'zod'
+import { CheckoutSchema } from './formValidations'
+import { FormProvider, useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { ShippingAddressForm } from './components/ShippingAddress'
+
+export type CheckoutFormData = z.infer<typeof CheckoutSchema>
 
 export function Checkout() {
+  const form = useForm<CheckoutFormData>({
+    resolver: zodResolver(CheckoutSchema),
+  })
+
   return (
     <ContentWrapper>
-      <StyledForm>
+      <StyledForm onSubmit={form.handleSubmit((data) => console.log(data))}>
         <div>
           <TitleXS>Complete seu pedido</TitleXS>
 
-          <LocaleInfo>
-            <OrderHeader variant="primary-700">
-              <MapPinLine size={22} />
+          <FormProvider {...form}>
+            <ShippingAddressForm />
 
-              <div>
-                <TextRegularM color="base-subtitle">
-                  Endereço de Entrega
-                </TextRegularM>
-                <TextRegularS>
-                  Informe o endereço onde deseja receber seu pedido
-                </TextRegularS>
-              </div>
-            </OrderHeader>
+            <PaymentInfo>
+              <OrderHeader variant="accent-700">
+                <CurrencyDollar size={22} />
 
-            <Grid>
-              <Input size={30} id="zipCode" placeholder="CEP" />
-              <Input size={100} id="street" placeholder="Rua" />
-              <Input size={30} id="number" placeholder="Número" />
-              <Input size={65} id="complement" placeholder="Complemento" grow />
-              <Input size={30} id="district" placeholder="Bairro" />
-              <Input size={55} id="town" placeholder="Cidade" />
-              <Input size={10} id="state" placeholder="UF" grow />
-            </Grid>
-          </LocaleInfo>
-          <PaymentInfo>
-            <OrderHeader variant="accent-700">
-              <CurrencyDollar size={22} />
+                <div>
+                  <TextRegularM color="base-subtitle">Pagamento</TextRegularM>
+                  <TextRegularS>
+                    O pagamento é feito na entrega. Escolha a forma que deseja
+                    pagar
+                  </TextRegularS>
+                </div>
+              </OrderHeader>
 
-              <div>
-                <TextRegularM color="base-subtitle">Pagamento</TextRegularM>
-                <TextRegularS>
-                  O pagamento é feito na entrega. Escolha a forma que deseja
-                  pagar
-                </TextRegularS>
-              </div>
-            </OrderHeader>
-
-            <PaymentTypeSection>
-              <PaymentType icon={<CreditCard />} label="Cartão de Crédito" />
-              <PaymentType icon={<Bank />} label="Cartão de Débito" />
-              <PaymentType icon={<Money />} label="Dinheiro" />
-            </PaymentTypeSection>
-          </PaymentInfo>
+              <PaymentTypeSection>
+                <PaymentType icon={<CreditCard />} label="Cartão de Crédito" />
+                <PaymentType icon={<Bank />} label="Cartão de Débito" />
+                <PaymentType icon={<Money />} label="Dinheiro" />
+              </PaymentTypeSection>
+            </PaymentInfo>
+          </FormProvider>
         </div>
 
         <div>
