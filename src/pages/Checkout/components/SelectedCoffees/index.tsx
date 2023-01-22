@@ -1,4 +1,5 @@
 import {
+  RemoveCoffeeButton,
   SelectedCoffee,
   SelectedCoffeeDescription,
   SelectedCoffeesTotals,
@@ -12,6 +13,10 @@ import { formattedCurrency } from 'src/_shared/utils/utils'
 
 export function SelectedCoffees() {
   const { items } = useShoppingCart()
+
+  const deliveryFee = 3.5
+  const totalItemsValue = items.reduce((acc, item) => acc + item.price, 0)
+  const totalValue = totalItemsValue + deliveryFee
 
   return (
     <SelectedCoffeesWrapper>
@@ -28,9 +33,9 @@ export function SelectedCoffees() {
                   quantity={item.quantity}
                   onValueChange={() => true}
                 ></SelectQuantity>
-                <button type="button">
+                <RemoveCoffeeButton type="button">
                   <Trash size={16} /> Remover
-                </button>
+                </RemoveCoffeeButton>
               </div>
             </SelectedCoffeeDescription>
           </div>
@@ -43,19 +48,19 @@ export function SelectedCoffees() {
         <div>
           <TextRegularS>Total de itens</TextRegularS>
 
-          <TextRegularM>R$ 29,70</TextRegularM>
+          <TextRegularM>{formattedCurrency(totalItemsValue)}</TextRegularM>
         </div>
 
         <div>
           <TextRegularS>Entrega</TextRegularS>
 
-          <TextRegularM>R$ 3,50</TextRegularM>
+          <TextRegularM>{formattedCurrency(deliveryFee)}</TextRegularM>
         </div>
 
         <div>
           <TextRegularL bold>Total</TextRegularL>
 
-          <TextRegularL bold>R$ 33,20</TextRegularL>
+          <TextRegularL bold>{formattedCurrency(totalValue)}</TextRegularL>
         </div>
       </SelectedCoffeesTotals>
     </SelectedCoffeesWrapper>

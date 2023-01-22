@@ -35,33 +35,38 @@ export const SelectedCoffeeDescription = styled.div`
   display: flex;
   flex-direction: column;
 
+  p {
+    margin-bottom: 0.5rem;
+  }
+
   div {
     display: flex;
     gap: 0.5rem;
+    height: 2rem;
+  }
+`
+
+export const RemoveCoffeeButton = styled.button`
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  padding: 0.375rem 0.5rem;
+  background: ${(props) => props.theme['base-button']};
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  color: ${(props) => props.theme['base-text']};
+
+  transition: background-color 0.2s;
+
+  svg {
+    color: ${(props) => props.theme['accent-500']};
   }
 
-  button {
-    border: none;
-    cursor: pointer;
-    border-radius: 6px;
-    padding: 0.375rem 0.5rem;
-    background: ${(props) => props.theme['base-button']};
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    color: ${(props) => props.theme['base-text']};
-
-    transition: background-color 0.2s;
-
-    svg {
-      color: ${(props) => props.theme['accent-500']};
-    }
-  }
-
-  button:hover {
+  &:hover {
     background-color: ${(props) => props.theme['base-hover']};
   }
 `
