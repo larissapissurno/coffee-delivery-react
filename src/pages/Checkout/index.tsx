@@ -6,14 +6,8 @@ import {
   CurrencyDollar,
   MapPinLine,
   Money,
-  Trash,
 } from 'phosphor-react'
-import {
-  TextRegularL,
-  TextRegularM,
-  TextRegularS,
-  TitleXS,
-} from 'src/styles/typography'
+import { TextRegularM, TextRegularS, TitleXS } from 'src/styles/typography'
 import {
   ContentWrapper,
   Grid,
@@ -21,14 +15,9 @@ import {
   OrderHeader,
   PaymentInfo,
   PaymentTypeSection,
-  SelectedCoffee,
-  SelectedCoffeeDescription,
-  SelectedCoffees,
-  SelectedCoffeesTotals,
   StyledForm,
 } from './styles'
-import coffeeImg from 'src/assets/coffees/american.png'
-import { SelectQuantity } from '@components/SelectQuantity'
+import { SelectedCoffees } from './components/SelectedCoffees'
 
 export function Checkout() {
   return (
@@ -85,49 +74,7 @@ export function Checkout() {
         <div>
           <TitleXS>Cafés selecionados</TitleXS>
 
-          <SelectedCoffees>
-            <SelectedCoffee>
-              <div>
-                <img src={coffeeImg} alt="a cup of coffee" />
-
-                <SelectedCoffeeDescription>
-                  <TextRegularM>Expresso Tradicional</TextRegularM>
-
-                  <div>
-                    <SelectQuantity
-                      quantity={1}
-                      onValueChange={() => true}
-                    ></SelectQuantity>
-                    <button type="button">
-                      <Trash size={16} /> Remover
-                    </button>
-                  </div>
-                </SelectedCoffeeDescription>
-              </div>
-
-              <span>R$ 9,90</span>
-            </SelectedCoffee>
-
-            <SelectedCoffeesTotals>
-              <div>
-                <TextRegularS>Total de itens</TextRegularS>
-
-                <TextRegularM>R$ 29,70</TextRegularM>
-              </div>
-
-              <div>
-                <TextRegularS>Entrega</TextRegularS>
-
-                <TextRegularM>R$ 3,50</TextRegularM>
-              </div>
-
-              <div>
-                <TextRegularL bold>Total</TextRegularL>
-
-                <TextRegularL bold>R$ 33,20</TextRegularL>
-              </div>
-            </SelectedCoffeesTotals>
-          </SelectedCoffees>
+          <SelectedCoffees />
         </div>
       </StyledForm>
     </ContentWrapper>
