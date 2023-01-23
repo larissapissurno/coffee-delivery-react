@@ -1,10 +1,4 @@
-import { OrderWrapper } from '@pages/Checkout/styles'
 import styled from 'styled-components'
-
-export const SelectedCoffeesWrapper = styled(OrderWrapper)`
-  margin-top: 0.975rem;
-  border-radius: 6px 44px 6px 44px;
-`
 
 export const SelectedCoffee = styled.div`
   display: flex;

@@ -3,7 +3,6 @@ import {
   SelectedCoffee,
   SelectedCoffeeDescription,
   SelectedCoffeesTotals,
-  SelectedCoffeesWrapper,
 } from './styles'
 import { SelectQuantity } from '@components/SelectQuantity'
 import { Trash } from 'phosphor-react'
@@ -22,7 +21,7 @@ export function SelectedCoffees() {
   const totalValue = totalItemsValue + deliveryFee
 
   return (
-    <SelectedCoffeesWrapper>
+    <>
       {items.map((item) => (
         <SelectedCoffee key={item.id}>
           <div>
@@ -71,6 +70,6 @@ export function SelectedCoffees() {
           <TextRegularL bold>{formattedCurrency(totalValue)}</TextRegularL>
         </div>
       </SelectedCoffeesTotals>
-    </SelectedCoffeesWrapper>
+    </>
   )
 }

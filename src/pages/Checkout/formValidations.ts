@@ -8,6 +8,5 @@ export const CheckoutSchema = schema.object({
   district: schema.string().min(1),
   city: schema.string().min(1),
   state: schema.string().min(1),
-  country: schema.string().min(1),
   paymentMethod: schema.string().min(1),
 })
