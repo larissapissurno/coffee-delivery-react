@@ -26,11 +26,13 @@ interface OrderContextProviderProps {
   children: ReactNode
 }
 
+const DELIVERY_FEE = 3.5
+
 export function OrderContextProvider({ children }: OrderContextProviderProps) {
   const [items, setItems] = useState<ShoppingCartItem[]>([])
   const [shippingAddress, setShippingAddress] = useState<ShippingAddress>()
   const [paymentMethod, setPaymentMethod] = useState<EPaymentMethod>()
-  const [deliveryFee, setDeliveryFee] = useState(0)
+  const [deliveryFee, setDeliveryFee] = useState(DELIVERY_FEE)
 
   return (
     <OrderContext.Provider

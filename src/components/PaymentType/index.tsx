@@ -9,6 +9,12 @@ export enum EPaymentMethod {
   Money = 'money',
 }
 
+export const EPaymentMethodsMap = new Map<EPaymentMethod, string>([
+  [EPaymentMethod.CreditCard, 'Cartão de Crédito'],
+  [EPaymentMethod.DebitCard, 'Cartão de Débito'],
+  [EPaymentMethod.Money, 'Dinheiro'],
+])
+
 interface PaymentMethodProps {
   icon: ReactNode
   label: string

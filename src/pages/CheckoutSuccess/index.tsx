@@ -2,9 +2,14 @@ import { ContentWrapper } from '@pages/Checkout/styles'
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
 import { TextRegularL, TitleL } from 'src/styles/typography'
 import { OrderInfo, OrderInfoWrapper } from './styles'
-import figure from '@assets/images/checkout-success-figure.svg'
+import successFigure from '@assets/images/checkout-success-figure.svg'
+import { useOrder } from 'src/contexts/OrderContext'
+import { EPaymentMethodsMap } from '@components/PaymentType'
 
 export function CheckoutSuccess() {
+  const { shippingAddress, paymentMethod } = useOrder()
+  const { street, number, state, city, district } = shippingAddress || {}
+
   return (
     <ContentWrapper>
       <TitleL color="primary-700">Uhu! Pedido confirmado</TitleL>
@@ -20,9 +25,12 @@ export function CheckoutSuccess() {
             </div>
             <div>
               <p>
-                Entrega em <strong>Rua João Daniel Martinelli, 102</strong>
+                Entrega em{' '}
+                <strong>
+                  {street}, {number}
+                </strong>
               </p>
-              <p>Farrapos - Porto Alegre, RS</p>
+              <p>{`${district} - ${city}, ${state}`}</p>
             </div>
           </OrderInfo>
 
@@ -42,12 +50,12 @@ export function CheckoutSuccess() {
             </div>
             <div>
               <p>Pagamento na entrega</p>
-              <strong>Cartão de Crédito</strong>
+              <strong>{EPaymentMethodsMap.get(paymentMethod!)}</strong>
             </div>
           </OrderInfo>
         </div>
 
-        <img src={figure} alt="" />
+        <img src={successFigure} alt="" />
       </OrderInfoWrapper>
     </ContentWrapper>
   )
