@@ -1,5 +1,5 @@
 import { Input } from '@components/Input/styles'
-import { PaymentType } from '@components/PaymentType'
+import { EPaymentMethod, PaymentMethod } from '@components/PaymentType'
 import { CheckoutFormData } from '@pages/Checkout'
 import { OrderHeader } from '@pages/Checkout/styles'
 import {
@@ -61,20 +61,20 @@ export function CheckoutForm() {
         </OrderHeader>
 
         <PaymentTypeSection>
-          <PaymentType
+          <PaymentMethod
             icon={<CreditCard />}
             label="Cartão de Crédito"
-            {...register('paymentMethod')}
+            value={EPaymentMethod.CreditCard}
           />
-          <PaymentType
+          <PaymentMethod
             icon={<Bank />}
             label="Cartão de Débito"
-            {...register('paymentMethod')}
+            value={EPaymentMethod.DebitCard}
           />
-          <PaymentType
+          <PaymentMethod
             icon={<Money />}
             label="Dinheiro"
-            {...register('paymentMethod')}
+            value={EPaymentMethod.Money}
           />
         </PaymentTypeSection>
       </PaymentInfo>

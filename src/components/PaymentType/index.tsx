@@ -1,18 +1,33 @@
+import { CheckoutFormData } from '@pages/Checkout'
 import { ReactNode } from 'react'
+import { useFormContext } from 'react-hook-form'
 import { PaymentTypeWrapper } from './styles'
 
-interface PaymentTypeProps {
+export enum EPaymentMethod {
+  CreditCard = 'creditCard',
+  DebitCard = 'debitCard',
+  Money = 'money',
+}
+
+interface PaymentMethodProps {
   icon: ReactNode
   label: string
+  value: EPaymentMethod
 }
-export function PaymentType({ icon, label, ...otherProps }: PaymentTypeProps) {
+export function PaymentMethod({ icon, label, value }: PaymentMethodProps) {
+  const { register, setValue, watch } = useFormContext<CheckoutFormData>()
+
+  const isChecked = watch('paymentMethod') === value
+  function handleOnClick() {
+    setValue('paymentMethod', value)
+  }
+
   return (
     <>
-      <PaymentTypeWrapper>
+      <PaymentTypeWrapper checked={isChecked} onClick={handleOnClick}>
         {icon} <span>{label}</span>
       </PaymentTypeWrapper>
-
-      <input type="radio" hidden {...otherProps} />
+      <input {...register('paymentMethod')} type="radio" value={value} hidden />
     </>
   )
 }

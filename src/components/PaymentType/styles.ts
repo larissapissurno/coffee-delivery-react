@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components'
 
 interface PaymentTypeWrapperProps {
-  selected?: boolean
+  checked: boolean
 }
 
 export const PaymentTypeWrapper = styled.div<PaymentTypeWrapperProps>`
@@ -37,7 +37,7 @@ export const PaymentTypeWrapper = styled.div<PaymentTypeWrapperProps>`
   }
 
   ${(props) =>
-    props.selected
+    props.checked
       ? css`
           border: 1px solid ${(props) => props.theme['accent-500']};
           background-color: ${(props) => props.theme['accent-300']};
