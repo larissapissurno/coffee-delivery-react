@@ -1,9 +1,25 @@
 import styled, { css } from 'styled-components'
 
 interface InputProps {
-  size: number
+  size?: number
   grow?: boolean
+  error?: boolean
 }
+
+export const InputWrapper = styled.div<InputProps>`
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  width: ${(props) => props.size + '%'};
+  height: 4rem;
+
+  ${(props) =>
+    props.grow &&
+    css`
+      flex-grow: 1;
+    `}
+`
 
 export const Input = styled.input<InputProps>`
   display: flex;
@@ -18,17 +34,24 @@ export const Input = styled.input<InputProps>`
   border-radius: 4px;
   outline: none;
 
-  width: ${(props) => props.size + '%'};
-
-  ${(props) =>
-    props.grow &&
-    css`
-      flex-grow: 1;
-    `}
+  width: 100%;
 
   &:focus {
-    border: 2px solid ${(props) => props.theme['primary-500']};
+    outline: transparent;
+    box-shadow: 0 0 0 2px ${(props) => props.theme['primary-500']};
   }
+
+  ${(props) =>
+    props.error &&
+    css`
+      outline: transparent;
+      box-shadow: 0 0 0 2px ${(props) => props.theme['red-500']};
+
+      &:focus {
+        outline: transparent;
+        box-shadow: 0 0 0 2px ${(props) => props.theme['red-500']};
+      }
+    `}
 
   &::placeholder {
     color: ${(props) => props.theme['base-label']};
@@ -36,4 +59,11 @@ export const Input = styled.input<InputProps>`
     font-size: 14px;
     line-height: 130%;
   }
+`
+
+export const ErrorMessage = styled.span`
+  color: ${(props) => props.theme['red-500']};
+  font-weight: 400;
+  font-size: 0.75rem;
+  line-height: 130%;
 `

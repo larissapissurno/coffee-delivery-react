@@ -1,4 +1,4 @@
-import { Input } from '@components/Input/styles'
+import { ErrorMessage, Input, InputWrapper } from '@components/Input/styles'
 import { EPaymentMethod, PaymentMethod } from '@components/PaymentType'
 import { CheckoutFormData } from '@pages/Checkout'
 import { OrderHeader } from '@pages/Checkout/styles'
@@ -14,7 +14,10 @@ import { TextRegularM, TextRegularS } from 'src/styles/typography'
 import { LocaleInfo, Grid, PaymentInfo, PaymentTypeSection } from './styles'
 
 export function CheckoutForm() {
-  const { register } = useFormContext<CheckoutFormData>()
+  const {
+    register,
+    formState: { errors },
+  } = useFormContext<CheckoutFormData>()
 
   return (
     <>
@@ -33,18 +36,86 @@ export function CheckoutForm() {
         </OrderHeader>
 
         <Grid>
-          <Input size={30} placeholder="CEP" {...register('zipCode')} />
-          <Input size={100} placeholder="Rua" {...register('street')} />
-          <Input size={30} placeholder="Número" {...register('number')} />
-          <Input
-            size={65}
-            placeholder="Complemento"
-            grow
-            {...register('complement')}
-          />
-          <Input size={30} placeholder="Bairro" {...register('district')} />
-          <Input size={55} placeholder="Cidade" {...register('city')} />
-          <Input size={10} placeholder="UF" grow {...register('state')} />
+          <InputWrapper size={30}>
+            <Input
+              placeholder="CEP"
+              {...register('zipCode')}
+              error={!!errors.zipCode?.message}
+            />
+            {!!errors.zipCode?.message && (
+              <ErrorMessage>{errors.zipCode?.message}</ErrorMessage>
+            )}
+          </InputWrapper>
+
+          <InputWrapper size={100}>
+            <Input
+              placeholder="Rua"
+              {...register('street')}
+              error={!!errors.street?.message}
+            />
+            {!!errors.street?.message && (
+              <ErrorMessage>{errors.street?.message}</ErrorMessage>
+            )}
+          </InputWrapper>
+
+          <InputWrapper size={30}>
+            <Input
+              placeholder="Número"
+              {...register('number')}
+              error={!!errors.number?.message}
+            />
+            {!!errors.number?.message && (
+              <ErrorMessage>{errors.number?.message}</ErrorMessage>
+            )}
+          </InputWrapper>
+
+          <InputWrapper size={65} grow>
+            <Input
+              size={65}
+              placeholder="Complemento"
+              {...register('complement')}
+              error={!!errors.complement?.message}
+            />
+            {!!errors.complement?.message && (
+              <ErrorMessage>{errors.complement?.message}</ErrorMessage>
+            )}
+          </InputWrapper>
+
+          <InputWrapper size={30}>
+            <Input
+              size={30}
+              placeholder="Bairro"
+              {...register('district')}
+              error={!!errors.district?.message}
+            />
+            {!!errors.district?.message && (
+              <ErrorMessage>{errors.district?.message}</ErrorMessage>
+            )}
+          </InputWrapper>
+
+          <InputWrapper size={55}>
+            <Input
+              size={55}
+              placeholder="Cidade"
+              {...register('city')}
+              error={!!errors.city?.message}
+            />
+            {!!errors.city?.message && (
+              <ErrorMessage>{errors.city?.message}</ErrorMessage>
+            )}
+          </InputWrapper>
+
+          <InputWrapper size={10} grow>
+            <Input
+              size={10}
+              placeholder="UF"
+              {...register('state')}
+              error={!!errors.state?.message}
+            />
+            {!!errors.state?.message && (
+              <ErrorMessage>{errors.state?.message}</ErrorMessage>
+            )}
+          </InputWrapper>
         </Grid>
       </LocaleInfo>
 
@@ -77,6 +148,9 @@ export function CheckoutForm() {
             value={EPaymentMethod.Money}
           />
         </PaymentTypeSection>
+        {!!errors.paymentMethod?.message && (
+          <ErrorMessage>{errors.paymentMethod?.message}</ErrorMessage>
+        )}
       </PaymentInfo>
     </>
   )
