@@ -17,6 +17,7 @@ import {
 } from 'src/contexts/ShoppingCartContext'
 import { TitleS } from 'src/styles/typography'
 import { formattedCurrency } from 'src/_shared/utils/utils'
+import c1 from 'src/assets/coffees/american.png'
 
 interface CoffeeCardProps {
   coffee: ShoppingCartItem
@@ -41,7 +42,7 @@ export function CoffeeCard({ coffee }: CoffeeCardProps) {
   return (
     <ContentWrapper>
       <CardContent>
-        <img src={coffee.imageUrl} alt="" />
+        <img src={c1} alt="" />
 
         <TagList>
           {coffee.tags.map((tag) => (

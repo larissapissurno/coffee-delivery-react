@@ -4,7 +4,7 @@ import { ContentContainer } from '../../../../styles/global'
 export const Background = styled.section`
   width: calc(100vw - (100vw - 100%));
   min-height: 34rem;
-  background-image: url(../../../src/assets/images/intro-background.png);
+  background-image: url('/intro-background.png');
   background-size: 100vw 34rem;
   background-repeat: no-repeat;
   margin-top: 5rem;
