@@ -610,7 +610,7 @@ Error generating stack: `+o.message+`
 `,b8="/coffee-delivery-react/assets/american.6051b298.png";function U8({coffee:e}){const[t,n]=O.exports.useState(Qr(e.price)),[r,i]=O.exports.useState(e.quantity),{updateCoffeeQuantity:o}=Eo(),s=u=>{i(u);const c=Math.max(u,1),d=e.price*c;n(Qr(d))},l=()=>{o(e,r)};return C($8,{children:[C(W8,{children:[a("img",{src:b8,alt:""}),a(z8,{children:e.tags.map(u=>a("span",{children:u},u))}),a(nk,{children:e.name}),a("p",{children:e.description})]}),C(I8,{children:[a(D8,{children:a("h3",{children:t})}),C(F8,{children:[a(u1,{quantity:e.quantity,onValueChange:s}),a(V8,{onClick:l,children:a(b2,{weight:"fill"})})]})]})]})}const H8=q.section`
   width: calc(100vw - (100vw - 100%));
   min-height: 34rem;
-  background-image: url(../../../src/assets/images/intro-background.png);
+  background-image: url('/intro-background.png');
   background-size: 100vw 34rem;
   background-repeat: no-repeat;
   margin-top: 5rem;
