@@ -516,7 +516,7 @@ Error generating stack: `+o.message+`
   div:nth-child(2) {
     color: ${e=>e.theme["base-text"]};
   }
-`,M8="/assets/checkout-success-figure.64b9984a.svg";function R8(){const{shippingAddress:e,paymentMethod:t}=W0(),{street:n,number:r,state:i,city:o,district:s}=e||{};return C(a1,{children:[a(l1,{color:"primary-700",children:"Uhu! Pedido confirmado"}),a(Ds,{children:"Agora \xE9 s\xF3 aguardar que logo o caf\xE9 chegar\xE1 at\xE9 voc\xEA"}),C(N8,{children:[C("div",{children:[C(Ea,{variant:"accent-500",children:[a("div",{children:a(K0,{size:16,weight:"fill"})}),C("div",{children:[C("p",{children:["Entrega em"," ",C("strong",{children:[n,", ",r]})]}),a("p",{children:`${s} - ${o}, ${i}`})]})]}),C(Ea,{variant:"primary-500",children:[a("div",{children:a(i1,{size:16,weight:"fill"})}),C("div",{children:[a("p",{children:"Previs\xE3o de entrega"}),a("strong",{children:"20 min - 30 min"})]})]}),C(Ea,{variant:"primary-700",children:[a("div",{children:a(Z0,{size:16,weight:"fill"})}),C("div",{children:[a("p",{children:"Pagamento na entrega"}),a("strong",{children:Nk.get(t)})]})]})]}),a("img",{src:M8,alt:""})]})]})}const $8=q.div`
+`,M8="/coffee-delivery-react/assets/checkout-success-figure.64b9984a.svg";function R8(){const{shippingAddress:e,paymentMethod:t}=W0(),{street:n,number:r,state:i,city:o,district:s}=e||{};return C(a1,{children:[a(l1,{color:"primary-700",children:"Uhu! Pedido confirmado"}),a(Ds,{children:"Agora \xE9 s\xF3 aguardar que logo o caf\xE9 chegar\xE1 at\xE9 voc\xEA"}),C(N8,{children:[C("div",{children:[C(Ea,{variant:"accent-500",children:[a("div",{children:a(K0,{size:16,weight:"fill"})}),C("div",{children:[C("p",{children:["Entrega em"," ",C("strong",{children:[n,", ",r]})]}),a("p",{children:`${s} - ${o}, ${i}`})]})]}),C(Ea,{variant:"primary-500",children:[a("div",{children:a(i1,{size:16,weight:"fill"})}),C("div",{children:[a("p",{children:"Previs\xE3o de entrega"}),a("strong",{children:"20 min - 30 min"})]})]}),C(Ea,{variant:"primary-700",children:[a("div",{children:a(Z0,{size:16,weight:"fill"})}),C("div",{children:[a("p",{children:"Pagamento na entrega"}),a("strong",{children:Nk.get(t)})]})]})]}),a("img",{src:M8,alt:""})]})]})}const $8=q.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -607,26 +607,26 @@ Error generating stack: `+o.message+`
   &:hover {
     background-color: ${e=>e.theme["accent-500"]};
   }
-`;function b8({coffee:e}){const[t,n]=O.exports.useState(Qr(e.price)),[r,i]=O.exports.useState(e.quantity),{updateCoffeeQuantity:o}=Eo(),s=u=>{i(u);const c=Math.max(u,1),d=e.price*c;n(Qr(d))},l=()=>{o(e,r)};return C($8,{children:[C(W8,{children:[a("img",{src:e.imageUrl,alt:""}),a(z8,{children:e.tags.map(u=>a("span",{children:u},u))}),a(nk,{children:e.name}),a("p",{children:e.description})]}),C(I8,{children:[a(D8,{children:a("h3",{children:t})}),C(F8,{children:[a(u1,{quantity:e.quantity,onValueChange:s}),a(V8,{onClick:l,children:a(b2,{weight:"fill"})})]})]})]})}const U8=q.section`
+`,b8="/coffee-delivery-react/assets/american.6051b298.png";function U8({coffee:e}){const[t,n]=O.exports.useState(Qr(e.price)),[r,i]=O.exports.useState(e.quantity),{updateCoffeeQuantity:o}=Eo(),s=u=>{i(u);const c=Math.max(u,1),d=e.price*c;n(Qr(d))},l=()=>{o(e,r)};return C($8,{children:[C(W8,{children:[a("img",{src:b8,alt:""}),a(z8,{children:e.tags.map(u=>a("span",{children:u},u))}),a(nk,{children:e.name}),a("p",{children:e.description})]}),C(I8,{children:[a(D8,{children:a("h3",{children:t})}),C(F8,{children:[a(u1,{quantity:e.quantity,onValueChange:s}),a(V8,{onClick:l,children:a(b2,{weight:"fill"})})]})]})]})}const H8=q.section`
   width: calc(100vw - (100vw - 100%));
   min-height: 34rem;
   background-image: url(../../../src/assets/images/intro-background.png);
   background-size: 100vw 34rem;
   background-repeat: no-repeat;
   margin-top: 5rem;
-`,H8=q($l)`
+`,B8=q($l)`
   padding: 5.75rem 0;
 
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-`,B8=q.div`
+`,Z8=q.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
 
   max-width: 37rem;
-`,Z8=q.div`
+`,Q8=q.div`
   img {
     width: 100%;
   }
@@ -634,16 +634,16 @@ Error generating stack: `+o.message+`
   @media (max-width: 768px) {
     display: none !important;
   }
-`,Q8=q.div`
+`,K8=q.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1.25rem;
 
   margin-top: 4.125rem;
-`,K8="/assets/intro-coffee.8e67fb00.png";function Y8(){return a(U8,{children:C(H8,{children:[C(B8,{children:[a(tk,{color:"base-title",children:"Encontre o caf\xE9 perfeito para qualquer hora do dia"}),a(Ds,{color:"base-subtitle",children:"Com o Coffee Delivery voc\xEA recebe seu caf\xE9 onde estiver, a qualquer hora"}),C(Q8,{children:[C(zi,{variant:"primary-700",children:[a("div",{children:a(t1,{size:16,weight:"fill"})}),a(ln,{children:"Compra simples e segura"})]}),C(zi,{variant:"base-text",children:[a("div",{children:a(z2,{size:16,weight:"fill"})}),a(ln,{children:"Embalagem mant\xE9m o caf\xE9 intacto"})]}),C(zi,{variant:"primary-500",children:[a("div",{children:a(i1,{size:16,weight:"fill"})}),a(ln,{children:"Entrega r\xE1pida e rastreada"})]}),C(zi,{variant:"accent-500",children:[a("div",{children:a(C2,{size:16,weight:"fill"})}),a(ln,{children:"O caf\xE9 chega fresquinho at\xE9 voc\xEA"})]})]})]}),a(Z8,{children:a("img",{src:K8,alt:""})})]})})}const G8=q.div`
+`,Y8="/coffee-delivery-react/assets/intro-coffee.8e67fb00.png";function G8(){return a(H8,{children:C(B8,{children:[C(Z8,{children:[a(tk,{color:"base-title",children:"Encontre o caf\xE9 perfeito para qualquer hora do dia"}),a(Ds,{color:"base-subtitle",children:"Com o Coffee Delivery voc\xEA recebe seu caf\xE9 onde estiver, a qualquer hora"}),C(K8,{children:[C(zi,{variant:"primary-700",children:[a("div",{children:a(t1,{size:16,weight:"fill"})}),a(ln,{children:"Compra simples e segura"})]}),C(zi,{variant:"base-text",children:[a("div",{children:a(z2,{size:16,weight:"fill"})}),a(ln,{children:"Embalagem mant\xE9m o caf\xE9 intacto"})]}),C(zi,{variant:"primary-500",children:[a("div",{children:a(i1,{size:16,weight:"fill"})}),a(ln,{children:"Entrega r\xE1pida e rastreada"})]}),C(zi,{variant:"accent-500",children:[a("div",{children:a(C2,{size:16,weight:"fill"})}),a(ln,{children:"O caf\xE9 chega fresquinho at\xE9 voc\xEA"})]})]})]}),a(Q8,{children:a("img",{src:Y8,alt:""})})]})})}const X8=q.div`
   padding: 3.375rem 0;
 
   display: flex;
   gap: 2.5rem 2rem;
   flex-wrap: wrap;
-`;function X8(){const{getAllCoffees:e}=Eo(),[t,n]=O.exports.useState([]);return O.exports.useEffect(()=>{n(e())},[e]),C(A,{children:[a(Y8,{}),C($l,{children:[a(l1,{color:"base-subtitle",children:"Nossos caf\xE9s"}),a(G8,{children:t.map(r=>a(b8,{coffee:{...r,quantity:1}},r.id))})]})]})}function q8(){return a(Yg,{children:C($i,{path:"/",element:a(ek,{}),children:[a($i,{path:"/",element:a(X8,{})}),a($i,{path:"/checkout",element:a(O8,{})}),a($i,{path:"/checkout-success",element:a(R8,{})})]})})}const J8={white:"#FFF",background:" #FAFAFA","base-card":"#F3F2F2","base-input":"#EDEDED","base-button":"#E6E5E5","base-hover":"#D7D5D5","base-label":"#8D8686","base-text":"#574F4D","base-subtitle":"#403937","base-title":"#272221","primary-300":"#F1E9C9","primary-500":"#DBAC2C","primary-700":"#C47F17","accent-300":"#EBE5F9","accent-500":"#8047F8","accent-700":"#4B2995","red-500":"#E25858","container-size":"75vw"};function ex(){return C(Gv,{theme:J8,children:[a(ev,{children:a(x2,{children:a(e2,{children:a(q8,{})})})}),a(Q2,{})]})}Pa.createRoot(document.getElementById("root")).render(a(He.StrictMode,{children:a(ex,{})}));
+`;function q8(){const{getAllCoffees:e}=Eo(),[t,n]=O.exports.useState([]);return O.exports.useEffect(()=>{n(e())},[e]),C(A,{children:[a(G8,{}),C($l,{children:[a(l1,{color:"base-subtitle",children:"Nossos caf\xE9s"}),a(X8,{children:t.map(r=>a(U8,{coffee:{...r,quantity:1}},r.id))})]})]})}function J8(){return a(Yg,{children:C($i,{path:"/",element:a(ek,{}),children:[a($i,{path:"/",element:a(q8,{})}),a($i,{path:"/checkout",element:a(O8,{})}),a($i,{path:"/checkout-success",element:a(R8,{})})]})})}const ex={white:"#FFF",background:" #FAFAFA","base-card":"#F3F2F2","base-input":"#EDEDED","base-button":"#E6E5E5","base-hover":"#D7D5D5","base-label":"#8D8686","base-text":"#574F4D","base-subtitle":"#403937","base-title":"#272221","primary-300":"#F1E9C9","primary-500":"#DBAC2C","primary-700":"#C47F17","accent-300":"#EBE5F9","accent-500":"#8047F8","accent-700":"#4B2995","red-500":"#E25858","container-size":"75vw"};function tx(){return C(Gv,{theme:ex,children:[a(ev,{basename:"/coffee-delivery-react",children:a(x2,{children:a(e2,{children:a(J8,{})})})}),a(Q2,{})]})}Pa.createRoot(document.getElementById("root")).render(a(He.StrictMode,{children:a(tx,{})}));
